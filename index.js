@@ -30,12 +30,12 @@ app.post("/test", (req, res) => {
 
   // Simula una respuesta exitosa con un ID generado
   const idGenerado = Math.floor(Math.random() * 1000000);
+  console.log('Id generado: '+ idGenerado);
   res.json({
     status: "success",
     id: idGenerado,
     message: "Solicitud procesada correctamente",
   })
-  console.log('Id generado: '+ idGenerado);
 });
 
 // Inicia el servidor
