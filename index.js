@@ -34,7 +34,8 @@ app.post("/test", (req, res) => {
     status: "success",
     id: idGenerado,
     message: "Solicitud procesada correctamente",
-  });
+  })
+  console.log('Id generado: '+ idGenerado);
 });
 
 // Inicia el servidor
