@@ -13,6 +13,7 @@ app.use((req, res, next) => {
   const apiKey = req.headers["x-api-key"];
   console.log(apiKey);
   console.log(API_KEY);
+  console.log('MENSAJE EJEMPLO');
   if (apiKey !== API_KEY) {
     return res.status(401).json({ error: "No autorizado" });
   }
