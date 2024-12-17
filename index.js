@@ -22,20 +22,37 @@ app.use((req, res, next) => {
 
 // Ruta de prueba para el Flow
 app.post("/test", (req, res) => {
-  const { tipoSolicitud, monto, informacionAdicional } = req.body;
+  const { 
+    nombreCliente, 
+    correoCliente, 
+    numeroPoliza, 
+    tipoPoliza, 
+    montoAsegurado, 
+    fechaEmision 
+  } = req.body;
 
-  if (!tipoSolicitud || !monto || !informacionAdicional) {
+  // Validación de los campos
+  if (!nombreCliente || !correoCliente || !numeroPoliza || !tipoPoliza || !montoAsegurado || !fechaEmision) {
     return res.status(400).json({ error: "Datos incompletos" });
   }
 
   // Simula una respuesta exitosa con un ID generado
   const idGenerado = Math.floor(Math.random() * 1000000);
-  console.log('Id generado: '+ idGenerado);
+  console.log('ID generado: ' + idGenerado);
+  
   res.json({
     status: "success",
     id: idGenerado,
     message: "Solicitud procesada correctamente",
-  })
+    data: {
+      nombreCliente,
+      correoCliente,
+      numeroPoliza,
+      tipoPoliza,
+      montoAsegurado,
+      fechaEmision
+    }
+  });
 });
 
 // Inicia el servidor
